@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Bileti.Domain.Models.Bilet>
+
+@{
+    ViewData["Title"] = "Tickets";
+}
+
+<h1>Tickets</h1>
+
+<form asp-action="Tickets" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Search by date: <input type="date" name="Date" value="@ViewData["Filter"]" />
+            <input type="submit" value="Search" class="btn btn-dark" />
+        </p>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BiletName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BiletDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BiletPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BiletCount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BiletDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BiletName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BiletDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BiletPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BiletCount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BiletDate)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
